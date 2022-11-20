@@ -2,7 +2,8 @@ package calculator;
 
 public class Calculation extends Exception{
 	int result;
-	float f1; 
+	double f1, new_num1, new_num2; 
+	
 	
 	//Method for addition
 	public int add(int num1, int num2){
@@ -21,14 +22,15 @@ public class Calculation extends Exception{
 		return result;
 	}
 	//Method for division
-	public float divide(int num1, int num2){
+	public double divide(int num1, int num2){
 		if(num2==0)
 		{
 			throw new ArithmeticException("Division by zero");
 		}
 		else 
-			
-			f1  = num1/num2;
+			new_num1 = num1;
+		    new_num2 = num2;
+			f1  = new_num1/new_num2;
 		    
 		
 		return f1;

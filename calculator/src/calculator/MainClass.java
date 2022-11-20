@@ -26,7 +26,7 @@ public class MainClass {
 		int mulResult = cal.multiply(calVO.getFirstNumber(), calVO.getSecondNumber());
 		System.out.println("Multiplication Result ="+mulResult);
 		
-		float divResult = cal.divide(calVO.getFirstNumber(), calVO.getSecondNumber());
+		double divResult = cal.divide(calVO.getFirstNumber(), calVO.getSecondNumber());
 		System.out.println("Division Result ="+divResult);
 
 	}

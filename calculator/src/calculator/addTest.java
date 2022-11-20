@@ -17,7 +17,7 @@ class addTest {
 		int output_add = cal.add(2,2);
 		int output_substract = cal.substract(2, 2);
 		int output_multiply = cal.multiply(2,2);
-		float output_divide = cal.divide(2,2);
+		double output_divide = cal.divide(2,2);
 		assertEquals(4, output_add); 
 		assertEquals(0, output_substract); 
 		assertEquals(4, output_multiply);
@@ -30,7 +30,7 @@ class addTest {
 		int output_add = cal.add(6,-2);
 		int output_substract = cal.substract(6, -2);
 		int output_multiply = cal.multiply(6,-2);
-		float output_divide = cal.divide(6,-2);
+		double output_divide = cal.divide(6,-2);
 		assertEquals(4, output_add); 
 		assertEquals(8, output_substract); 
 		assertEquals(-12, output_multiply);
@@ -61,28 +61,33 @@ class addTest {
 	@Test
     void negativeandpositive() {
 	Calculation cal = new Calculation();
+
 	int output_add = cal.add(-7,3);
 	int output_substract = cal.substract(-7, 3);
 	int output_multiply = cal.multiply(-7,3);
-	float output_divide = cal.divide(-7,3);
+	double output_divide = cal.divide(-7,3);
 	
 	assertEquals(-4, output_add); 
 	assertEquals(-10, output_substract); 
 	assertEquals(-21, output_multiply);
 	
-	assertEquals(-2.3 , output_divide);
+	assertEquals(-2.33 ,Math.round(output_divide * 100.0) / 100.0);
 }
 	
-	/* @Test
+  @Test
     void illegalarguments() {
 	Calculation cal = new Calculation();
-	IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-		cal.add( 2.3, 4.6);
-	}, "IllegalArgumentException was expected");
 	
+	int output_add = cal.add( 2100000000, 2000000000);
 	
+	int output_substract = cal.substract( 2100000000, 2000000000);
+	int output_multiply = cal.multiply( 2100000000, 2000000000);
+	double output_divide = cal.divide( 2100000000, 2000000000);
 	
-	Assertions.assertEquals("number is not integer", thrown.getMessage());
+	assertEquals(-194967296, output_add);
+	assertEquals(100000000, output_substract);
+	assertEquals(1487142912, output_multiply);
+	assertEquals(1.05, output_divide);
 	
-}*/
+	}
 }
