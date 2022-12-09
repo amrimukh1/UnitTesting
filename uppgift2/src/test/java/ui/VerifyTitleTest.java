@@ -142,10 +142,6 @@ public class VerifyTitleTest {
 			driver.close();
 				
 			
-				
-				
-				
-		  
 	  }
 	  
 	  @Test
