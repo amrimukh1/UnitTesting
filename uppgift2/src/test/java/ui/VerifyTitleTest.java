@@ -32,7 +32,7 @@ public class VerifyTitleTest {
 		
 	}*/
 	
-	
+
 	 @Test
 	public void atitleTest(WebDriver driver1)
 	{
@@ -45,7 +45,7 @@ public class VerifyTitleTest {
 	//	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	//	driver.manage().timeouts().pageLoadTimeout(30,TimeUnit.SECONDS);
 		driver.get("https://www.scribbr.com");
-		String actualtitle = driver1.getTitle(); 
+		String actualtitle = driver.getTitle(); 
 	//	System.out.println("actualtitle is "+ actualtitle);
 		AssertJUnit.assertEquals(actualtitle, expectedtitle);
 		
@@ -57,6 +57,7 @@ public class VerifyTitleTest {
 	  public void loginTest()
 	 {
 		 String expectedHeader="Test Test";
+		 String expectedUrl = "https://order.scribbr.com/student/" ;
 		 WebDriverManager.chromedriver().setup();
 			WebDriver driver = new ChromeDriver();
 			// driver.manage().deleteAllCookies();
@@ -86,7 +87,11 @@ public class VerifyTitleTest {
 			
 			String actualHeader = driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[1]/div/div[2]/header/div/h2")).getText();
 			//System.out.println("actual header is " + actualHeader);
+			System.out.println("Verifying UserName ");
 			AssertJUnit.assertEquals(actualHeader, expectedHeader); 
+			System.out.println("Verifying URL");
+			String actualUrl = driver.getCurrentUrl(); 
+			Assert.assertEquals(actualUrl, expectedUrl); 
 			
 			driver.close();
 			
@@ -142,6 +147,10 @@ public class VerifyTitleTest {
 			driver.close();
 				
 			
+				
+				
+				
+		  
 	  }
 	  
 	  @Test
