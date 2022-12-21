@@ -103,6 +103,7 @@ public class VerifyTitleTest {
 	  public void navigationTest()
 	  {
 		   // String expectedUrl="https://www.scribbr.com/proofreading-editing/essay-editing-service/";
+		  String expectedText = "Upload essay"; 
 			 WebDriverManager.chromedriver().setup();
 				WebDriver driver = new ChromeDriver();
 				// driver.manage().deleteAllCookies();
@@ -141,10 +142,16 @@ public class VerifyTitleTest {
 			actions.moveToElement(element2); 
 			actions.click().build().perform();
 				
-				
+				System.out.println("Verify the URL");
 			String actualUrl = driver.getCurrentUrl(); 
 			Assert.assertTrue(actualUrl.contains("https://www.scribbr.com/proofreading-editing/essay-editing-service/"));
-			driver.close();
+			
+			System.out.println("Verify Upload button");
+			String actualText = driver.findElement(By.xpath("//a[contains(text(),'Upload essay')]")).getText(); 
+			//System.out.println("Actual Text is " + actualText);
+			Assert.assertEquals(actualText, expectedText); 
+			
+			 driver.close();
 				
 			
 				
